@@ -8,10 +8,10 @@ namespace FaunaAdmin.Cli.Extensions
     {
         public static RootCommand AddCommands(this RootCommand rootCommand)
         {
-            var commandIdentity = typeof(Command);
+            var baseCommand = typeof(Command);
             var types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(assembly => assembly.GetTypes())
-                .Where(t => t.BaseType == commandIdentity && t != typeof(RootCommand));
+                .Where(t => t.BaseType == baseCommand && t != typeof(RootCommand));
 
             foreach (var type in types)
             {
