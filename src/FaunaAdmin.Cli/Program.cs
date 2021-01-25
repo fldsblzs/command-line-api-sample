@@ -6,7 +6,7 @@ namespace FaunaAdmin.Cli
 {
     internal static class Program
     {
-        static async Task<int> Main(string[] args)
+        private static async Task<int> Main(string[] args)
         {
             var rootCommand = new RootCommand
             {

@@ -9,13 +9,13 @@ namespace FaunaAdmin.Cli.Commands
     public class CreateCollectionCommand : Command
     {
         public const string CommandName = "create-collection";
-        public const string CommandDescription = "Create a collection resource.";
+        public const string CommandDescription = "Create a collection in a database.";
         
         public CreateCollectionCommand(string name, string? description = null)
             : base(name, description)
         {
-            AddArgument(new Argument<string>("collectionName"));
-            AddArgument(new Argument<string>("serverKey"));
+            AddArgument(new Argument<string>("collectionName", "Name of the collection."));
+            AddArgument(new Argument<string>("serverKey", "Database server key."));
             Handler = CommandHandler.Create<string, string>(Execute);
         }
 

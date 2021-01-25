@@ -15,9 +15,9 @@ namespace FaunaAdmin.Cli.Extensions
 
             foreach (var type in types)
             {
-                var name = type.GetField("CommandName").GetValue(null);
-                var description = type.GetField("CommandDescription").GetValue(null);
-                var instance = (Command)Activator.CreateInstance(type, name, description);
+                var name = type.GetField("CommandName")?.GetValue(null);
+                var description = type.GetField("CommandDescription")?.GetValue(null);
+                var instance = (Command)Activator.CreateInstance(type, name, description)!;
                 
                 rootCommand.AddCommand(instance);
             }
